@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "route_id": "northstar-release-review",
+      "display_name": "Northstar release review",
+      "context_tags": ["northstar", "release"],
+      "required_record_types": ["decision", "test"],
+      "allowed_scopes": ["demo_public"],
+      "description": "Retrieve the current release decision and latest test result."
+    }
+  ]
+}
