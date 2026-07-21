@@ -1,0 +1,13 @@
+{
+    "status":  "PASS",
+    "core_assertions":  11,
+    "required_artifacts":  16,
+    "manifest_entries":  12,
+    "json_documents":  2,
+    "html_ids":  22,
+    "javascript_id_references":  15,
+    "browser_record_alignment":  "PASS",
+    "static_network_references":  0,
+    "install_startup_service_network_commands":  0,
+    "visual_render_review":  "PENDING_MANUAL"
+}
