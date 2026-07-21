@@ -1,0 +1,108 @@
+﻿{
+    "schema_version":  "1.0",
+    "project":  "PITHOS Workbench Continuity Layer - portable synthetic demo",
+    "generated_at":  "2026-07-19T15:05:27.2448902-04:00",
+    "request":  {
+                    "prompt":  "Prepare the Northstar release review using the current decision, the latest test result, and only records approved for this task.",
+                    "route_id":  "northstar-release-review",
+                    "scope":  "demo_public",
+                    "repeat":  2
+                },
+    "runs":  [
+                 {
+                     "request_id":  "DEMO-001",
+                     "dedupe_key":  "9fabc0b81d65602418adfb18f120a493b0325a68b0f3eaca44e2246bd6238821",
+                     "route_id":  "northstar-release-review",
+                     "cache_status":  "fresh_mount",
+                     "states":  [
+                                    "received",
+                                    "dedupe_checked",
+                                    "route_selected",
+                                    "retrieval_completed",
+                                    "bound",
+                                    "reflected",
+                                    "answered"
+                                ],
+                     "selected_records":  [
+                                              "NORTHSTAR-DECISION-004",
+                                              "NORTHSTAR-TEST-018"
+                                          ],
+                     "excluded_records":  [
+                                              {
+                                                  "record_id":  "NORTHSTAR-DECISION-003",
+                                                  "reason":  "status_stale"
+                                              },
+                                              {
+                                                  "record_id":  "NORTHSTAR-INCIDENT-PRIVATE",
+                                                  "reason":  "scope_denied"
+                                              },
+                                              {
+                                                  "record_id":  "ORBIT-BUDGET-009",
+                                                  "reason":  "route_mismatch"
+                                              }
+                                          ],
+                     "answer":  "Northstar release review: GO. Publish only after the final smoke test remains green. Latest verification: 18 of 18 smoke checks passed. Environment: synthetic-staging.",
+                     "provenance":  [
+                                        {
+                                            "record_id":  "NORTHSTAR-DECISION-004",
+                                            "title":  "Current release decision",
+                                            "source_path":  "data/records.json#NORTHSTAR-DECISION-004",
+                                            "effective_at":  "2026-07-18T13:20:00-04:00"
+                                        },
+                                        {
+                                            "record_id":  "NORTHSTAR-TEST-018",
+                                            "title":  "Latest release test",
+                                            "source_path":  "data/records.json#NORTHSTAR-TEST-018",
+                                            "effective_at":  "2026-07-18T14:05:00-04:00"
+                                        }
+                                    ]
+                 },
+                 {
+                     "request_id":  "DEMO-002",
+                     "dedupe_key":  "9fabc0b81d65602418adfb18f120a493b0325a68b0f3eaca44e2246bd6238821",
+                     "route_id":  "northstar-release-review",
+                     "cache_status":  "reused_existing_mount",
+                     "states":  [
+                                    "received",
+                                    "dedupe_checked",
+                                    "reused_existing_mount",
+                                    "bound",
+                                    "reflected",
+                                    "answered"
+                                ],
+                     "selected_records":  [
+                                              "NORTHSTAR-DECISION-004",
+                                              "NORTHSTAR-TEST-018"
+                                          ],
+                     "excluded_records":  [
+                                              {
+                                                  "record_id":  "NORTHSTAR-DECISION-003",
+                                                  "reason":  "status_stale"
+                                              },
+                                              {
+                                                  "record_id":  "NORTHSTAR-INCIDENT-PRIVATE",
+                                                  "reason":  "scope_denied"
+                                              },
+                                              {
+                                                  "record_id":  "ORBIT-BUDGET-009",
+                                                  "reason":  "route_mismatch"
+                                              }
+                                          ],
+                     "answer":  "Northstar release review: GO. Publish only after the final smoke test remains green. Latest verification: 18 of 18 smoke checks passed. Environment: synthetic-staging.",
+                     "provenance":  [
+                                        {
+                                            "record_id":  "NORTHSTAR-DECISION-004",
+                                            "title":  "Current release decision",
+                                            "source_path":  "data/records.json#NORTHSTAR-DECISION-004",
+                                            "effective_at":  "2026-07-18T13:20:00-04:00"
+                                        },
+                                        {
+                                            "record_id":  "NORTHSTAR-TEST-018",
+                                            "title":  "Latest release test",
+                                            "source_path":  "data/records.json#NORTHSTAR-TEST-018",
+                                            "effective_at":  "2026-07-18T14:05:00-04:00"
+                                        }
+                                    ]
+                 }
+             ]
+}
