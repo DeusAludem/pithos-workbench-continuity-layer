@@ -1,0 +1,75 @@
+{
+  "records": [
+    {
+      "record_id": "NORTHSTAR-DECISION-004",
+      "record_type": "decision",
+      "title": "Current release decision",
+      "effective_at": "2026-07-18T13:20:00-04:00",
+      "status": "current",
+      "scope": "demo_public",
+      "tags": ["northstar", "release", "decision"],
+      "content": {
+        "decision": "GO",
+        "condition": "Publish only after the final smoke test remains green.",
+        "owner": "Release lead"
+      },
+      "source_path": "data/records.json#NORTHSTAR-DECISION-004"
+    },
+    {
+      "record_id": "NORTHSTAR-TEST-018",
+      "record_type": "test",
+      "title": "Latest release test",
+      "effective_at": "2026-07-18T14:05:00-04:00",
+      "status": "current",
+      "scope": "demo_public",
+      "tags": ["northstar", "release", "test"],
+      "content": {
+        "result": "PASS",
+        "summary": "18 of 18 smoke checks passed.",
+        "environment": "synthetic-staging"
+      },
+      "source_path": "data/records.json#NORTHSTAR-TEST-018"
+    },
+    {
+      "record_id": "NORTHSTAR-DECISION-003",
+      "record_type": "decision",
+      "title": "Superseded release decision",
+      "effective_at": "2026-07-16T09:00:00-04:00",
+      "status": "stale",
+      "scope": "demo_public",
+      "tags": ["northstar", "release", "decision"],
+      "content": {
+        "decision": "HOLD",
+        "condition": "Historical record retained for audit.",
+        "owner": "Release lead"
+      },
+      "source_path": "data/records.json#NORTHSTAR-DECISION-003"
+    },
+    {
+      "record_id": "NORTHSTAR-INCIDENT-PRIVATE",
+      "record_type": "incident",
+      "title": "Restricted incident detail",
+      "effective_at": "2026-07-18T12:15:00-04:00",
+      "status": "current",
+      "scope": "restricted",
+      "tags": ["northstar", "release", "incident"],
+      "content": {
+        "summary": "Synthetic restricted detail that must not enter the mount."
+      },
+      "source_path": "data/records.json#NORTHSTAR-INCIDENT-PRIVATE"
+    },
+    {
+      "record_id": "ORBIT-BUDGET-009",
+      "record_type": "budget",
+      "title": "Unrelated Orbit budget",
+      "effective_at": "2026-07-18T10:30:00-04:00",
+      "status": "current",
+      "scope": "demo_public",
+      "tags": ["orbit", "budget"],
+      "content": {
+        "summary": "Unrelated synthetic project record."
+      },
+      "source_path": "data/records.json#ORBIT-BUDGET-009"
+    }
+  ]
+}
