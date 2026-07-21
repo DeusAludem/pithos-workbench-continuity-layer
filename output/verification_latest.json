@@ -1,0 +1,40 @@
+{
+    "status":  "PASS",
+    "assertions":  11,
+    "selected_records":  [
+                             "NORTHSTAR-DECISION-004",
+                             "NORTHSTAR-TEST-018"
+                         ],
+    "excluded_records":  [
+                             {
+                                 "record_id":  "NORTHSTAR-DECISION-003",
+                                 "reason":  "status_stale"
+                             },
+                             {
+                                 "record_id":  "NORTHSTAR-INCIDENT-PRIVATE",
+                                 "reason":  "scope_denied"
+                             },
+                             {
+                                 "record_id":  "ORBIT-BUDGET-009",
+                                 "reason":  "route_mismatch"
+                             }
+                         ],
+    "fresh_states":  [
+                         "received",
+                         "dedupe_checked",
+                         "route_selected",
+                         "retrieval_completed",
+                         "bound",
+                         "reflected",
+                         "answered"
+                     ],
+    "reuse_states":  [
+                         "received",
+                         "dedupe_checked",
+                         "reused_existing_mount",
+                         "bound",
+                         "reflected",
+                         "answered"
+                     ],
+    "provenance_count":  2
+}
