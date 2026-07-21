@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PITHOS Workbench Continuity Layer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand-block">
+      <div class="brand-mark" aria-hidden="true">P</div>
+      <div>
+        <h1>PITHOS</h1>
+        <p>Workbench Continuity Layer</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <span class="environment-badge">Synthetic demo</span>
+      <button id="reset-button" class="icon-button" type="button" title="Reset demo" aria-label="Reset demo">&#8635;</button>
+      <button id="run-button" class="primary-button" type="button"><span aria-hidden="true">&#9654;</span> Run request</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="tree-panel" aria-labelledby="tree-title">
+      <div class="section-heading">
+        <h2 id="tree-title">Portable file tree</h2>
+        <span>Inspectable bundle</span>
+      </div>
+      <nav class="file-tree" aria-label="Portable demo files">
+        <div class="tree-root"><span class="folder-icon">&#9662;</span> portable_demo</div>
+        <div class="tree-item level-1 active"><span>&#9633;</span> index.html</div>
+        <div class="tree-item level-1"><span>&#9633;</span> app.js</div>
+        <div class="tree-item level-1"><span>&#9633;</span> styles.css</div>
+        <div class="tree-item level-1"><span>&#9633;</span> pithos_router.ps1</div>
+        <div class="tree-item level-1"><span>&#9654;</span> run_demo.ps1</div>
+        <div class="tree-item level-1"><span>&#10003;</span> verify_demo.ps1</div>
+        <div class="tree-item level-1"><span>&#10003;</span> verify_package.ps1</div>
+        <div class="tree-item level-1"><span>&#9633;</span> README.md</div>
+        <div class="tree-item level-1"><span>&#9633;</span> LICENSE</div>
+        <div class="tree-item level-1"><span>&#9633;</span> HOST_PORTABILITY.md</div>
+        <div class="tree-item level-1"><span>&#9633;</span> MANIFEST.sha256</div>
+        <div class="tree-root level-1"><span class="folder-icon">&#9662;</span> data</div>
+        <div class="tree-item level-2"><span>&#9633;</span> routes.json</div>
+        <div class="tree-item level-2"><span>&#9633;</span> records.json</div>
+        <div class="tree-root level-1"><span class="folder-icon">&#9662;</span> output</div>
+        <div class="tree-item level-2"><span>&#9633;</span> receipt_latest.json</div>
+        <div class="tree-item level-2"><span>&#9633;</span> answer_latest.md</div>
+        <div class="tree-item level-2"><span>&#10003;</span> verification_latest.json</div>
+        <div class="tree-item level-2"><span>&#10003;</span> package_verification_latest.json</div>
+      </nav>
+      <div class="tree-note">
+        <strong>Durable layer</strong>
+        <p>Records, routes, receipts, and provenance remain inspectable when the execution model or host changes.</p>
+      </div>
+    </aside>
+
+    <section class="operation-panel" aria-label="Continuity request demonstration">
+      <div class="metrics-band">
+        <div class="metric">
+          <span>Route</span>
+          <strong>northstar-release-review</strong>
+        </div>
+        <div class="metric">
+          <span>Scope</span>
+          <strong>demo_public</strong>
+        </div>
+        <div class="metric">
+          <span>Mount</span>
+          <strong id="mount-metric">Not run</strong>
+        </div>
+        <div class="metric">
+          <span>Selected</span>
+          <strong id="selected-metric">0 / 5</strong>
+        </div>
+      </div>
+
+      <section class="request-band" aria-labelledby="request-title">
+        <div class="section-heading">
+          <h2 id="request-title">User command</h2>
+          <span>Command-triggered</span>
+        </div>
+        <label for="request-input" class="sr-only">Continuity request</label>
+        <textarea id="request-input" rows="2">Prepare the Northstar release review using the current decision, the latest test result, and only records approved for this task.</textarea>
+      </section>
+
+      <section class="pipeline-section" aria-labelledby="pipeline-title">
+        <div class="section-heading">
+          <h2 id="pipeline-title">Request state</h2>
+          <span id="pipeline-status" aria-live="polite">Ready</span>
+        </div>
+        <ol class="pipeline" id="pipeline-list">
+          <li data-state="received">Received</li>
+          <li data-state="dedupe_checked">Dedupe</li>
+          <li data-state="route_selected">Route</li>
+          <li data-state="retrieval_completed">Retrieve</li>
+          <li data-state="bound">Bind</li>
+          <li data-state="reflected">Reflect</li>
+          <li data-state="answered">Answer</li>
+        </ol>
+      </section>
+
+      <div class="content-grid">
+        <section class="records-section" aria-labelledby="records-title">
+          <div class="section-heading">
+            <h2 id="records-title">Candidate records</h2>
+            <span id="record-status">Awaiting request</span>
+          </div>
+          <div id="records-list" class="records-list"></div>
+        </section>
+
+        <section class="answer-section" aria-labelledby="answer-title">
+          <div class="section-heading">
+            <h2 id="answer-title">Bound answer</h2>
+            <span id="answer-status">No mount</span>
+          </div>
+          <div id="answer-empty" class="answer-empty">
+            <div class="empty-symbol" aria-hidden="true">&#8769;</div>
+            <p>Run the request to create a bounded context mount.</p>
+          </div>
+          <div id="answer-content" class="answer-content" hidden>
+            <p id="answer-text"></p>
+            <h3>Provenance</h3>
+            <ul id="provenance-list"></ul>
+            <div class="receipt-line">
+              <span>Receipt</span>
+              <code id="receipt-id"></code>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="exclusions-section" aria-labelledby="exclusions-title">
+        <div class="section-heading">
+          <h2 id="exclusions-title">Exclusion log</h2>
+          <span>Fail closed</span>
+        </div>
+        <div id="exclusions-list" class="exclusions-list">
+          <p class="quiet">No exclusions recorded yet.</p>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <span>Portable synthetic reference implementation</span>
+    <span>Zero network requests &middot; zero installed dependencies &middot; private archive excluded</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
+
+
